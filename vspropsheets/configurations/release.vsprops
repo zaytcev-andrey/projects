@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="release"
+	>
+	<Tool
+		Name="VCCLCompilerTool"
+		Optimization="2"
+		EnableIntrinsicFunctions="true"
+		PreprocessorDefinitions="NDEBUG"
+		MinimalRebuild="false"
+		RuntimeLibrary="2"
+		EnableFunctionLevelLinking="true"
+		DebugInformationFormat="3"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		OptimizeReferences="2"
+		EnableCOMDATFolding="2"
+	/>
+	<Tool
+		Name="VCMIDLTool"
+		PreprocessorDefinitions="NDEBUG"
+		MkTypLibCompatible="false"
+		ValidateParameters="true"
+	/>
+	<Tool
+		Name="VCResourceCompilerTool"
+		PreprocessorDefinitions="NDEBUG"
+	/>
+	<UserMacro
+		Name="ConfigurationSuffix"
+		Value=""
+	/>
+	<UserMacro
+		Name="BoostDebugSuffix"
+		Value=""
+	/>
+	<UserMacro
+		Name="VSPropSheetsDir"
+		Value="$(SolutionDir)../../vspropsheets"
+	/>
+</VisualStudioPropertySheet>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<VisualStudioPropertySheet
+	ProjectType="Visual C++"
+	Version="8.00"
+	Name="x64"
+	>
+	<Tool
+		Name="VCMIDLTool"
+		TargetEnvironment="3"
+	/>
+	<Tool
+		Name="VCCLCompilerTool"
+		PreprocessorDefinitions="WIN32;WIN64"
+	/>
+	<Tool
+		Name="VCLinkerTool"
+		TargetMachine="17"
+	/>
+	<UserMacro
+		Name="PlatformPostfix"
+		Value="64"
+	/>
+	<UserMacro
+		Name="InternalPlatformName"
+		Value="x64"
+	/>
+	<UserMacro
+		Name="AdditionalLibPlatformName"
+		Value="-64"
+	/>
+</VisualStudioPropertySheet>
