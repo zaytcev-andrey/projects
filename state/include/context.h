@@ -1,25 +1,6 @@
 #pragma once
 
-class Data
-{
-public:
-     Data( int val = 10 )
-          : value_( 10 )
-     {
-     }
-
-     void SetValue( int val )
-     {
-          value_ = val;
-     }
-
-     int GetValue() const
-     {
-          return value_;
-     }
-private:
-     int value_;
-};
+#include <boost/scoped_ptr.hpp>
 
 class State;
 
@@ -41,13 +22,16 @@ public:
 
      void Request();
 private:
-     friend class State;
 
      void ChangeState( State* state )
      {
           state_ = state;
      }
 private:
-     Data data_;
+     
+     class ContextImpl;
+
+     boost::scoped_ptr< ContextImpl > impl_;
+     
      State* state_;
 };

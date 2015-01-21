@@ -3,8 +3,17 @@
 #include <state/include/context.h>
 #include <state/include/state.h>
 
+class Context::ContextImpl
+{
+public:
+     void ContextInternalFunction()
+     {
+     }
+};
+
 Context::Context()
-: state_( InitState::Instance() )
+     : impl_( new ContextImpl() )
+     , state_( InitState::Instance() )
 {
 }
 
