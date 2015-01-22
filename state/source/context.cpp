@@ -1,19 +1,17 @@
 #include <state/include/precompiled.h>
 
 #include <state/include/context.h>
+#include <state/include/context_impl.h>
 #include <state/include/state.h>
 
-class Context::ContextImpl
-{
-public:
-     void ContextInternalFunction()
-     {
-     }
-};
 
 Context::Context()
-     : impl_( new ContextImpl() )
-     , state_( InitState::Instance() )
+     : state_( InitState::Instance() )
+{
+}
+
+Context::Context( IState* state )
+     : state_( state )
 {
 }
 

@@ -2,13 +2,14 @@
 
 #include <state/include/state.h>
 #include <state/include/context.h>
+#include <state/include/context_impl.h>
 
 #include <boost/scoped_ptr.hpp>
 
 boost::scoped_ptr< InitState > InitState::instatnce_( 0 );
 boost::scoped_ptr< WorkingState > WorkingState::instatnce_( 0 );
 
-void State::ChangeState( IContext* context, State* state )
+void IState::ChangeState( IContext* context, IState* state )
 {
      context->ChangeState( state );
 }

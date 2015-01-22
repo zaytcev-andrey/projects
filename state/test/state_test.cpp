@@ -16,20 +16,20 @@ class MockContext : public IContext
 {
 public:
      MOCK_METHOD0( Request, void() );
-     MOCK_METHOD1( ChangeState, void( State* state ) );
+     MOCK_METHOD1( ChangeState, void( IState* state ) );
 };
 
 class MockInitState : public InitState
 {
 public:
-     MOCK_METHOD2( ChangeState, void( IContext* context, State* state ) );
+     MOCK_METHOD2( ChangeState, void( IContext* context, IState* state ) );
 };
 
 
 TEST( InitStateTest, Request )
 {
      MockContext moc_context;
-     State* new_state = WorkingState::Instance();
+     IState* new_state = WorkingState::Instance();
  
      MockInitState state;     
      EXPECT_CALL( moc_context, Request() ).Times( 1 );

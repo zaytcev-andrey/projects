@@ -1,37 +1,45 @@
 #pragma once
 
 #include <boost/scoped_ptr.hpp>
+#include <boost/shared_ptr.hpp>
 
-class State;
+class IState;
 
 class IContext
 {
 public:
 
-     virtual void Request() = 0;
-private:
-     friend class State;
+     virtual ~IContext() {}
 
-     virtual void ChangeState( State* state ) = 0;
+     virtual void Request() = 0;
+
+private:
+
+     friend class IState;
+
+     virtual void ChangeState( IState* state ) = 0;
 };
 
-class Context: public IContext
+class Context : public IContext
 {
 public:
+
      Context();
 
      void Request();
+
 private:
 
-     void ChangeState( State* state )
+     void ChangeState( IState* state )
      {
           state_ = state;
      }
-private:
-     
-     class ContextImpl;
+ 
+protected:
 
-     boost::scoped_ptr< ContextImpl > impl_;
+     Context( IState* state );
+
+private:     
      
-     State* state_;
+     IState* state_;
 };

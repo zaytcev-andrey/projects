@@ -4,16 +4,20 @@
 
 class IContext;
 
-class State
+class IState
 {
 public:
+     
+     virtual ~IState() {}
+
      virtual void Request( IContext* context ) = 0;
+
 protected:
-     virtual void ChangeState( IContext* context, State* state );
+     virtual void ChangeState( IContext* context, IState* state );
 };
 
 
-class InitState : public State
+class InitState : public IState
 {
 public:
      void Request( IContext* context );
@@ -22,16 +26,17 @@ public:
      {
           if ( !instatnce_.get() )
           {
-               instatnce_.reset( new InitState() );                   
-          }    
-
+               instatnce_.reset( new InitState() );
+          }
+          
           return instatnce_.get();
      }
+
 private:
      static boost::scoped_ptr< InitState > instatnce_;
 };
 
-class WorkingState : public State
+class WorkingState : public IState
 {
 public:
      void Request( IContext* context );
@@ -40,8 +45,8 @@ public:
      {
           if ( !instatnce_.get() )
           {
-               instatnce_.reset( new WorkingState() );                   
-          }    
+               instatnce_.reset( new WorkingState() );
+          }
 
           return instatnce_.get();
      }
