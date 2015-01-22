@@ -11,7 +11,9 @@ public:
 
      virtual ~IContext() {}
 
-     virtual void Request() = 0;
+     virtual void RequestForData() = 0;
+
+     virtual void GetResult() = 0;
 
 private:
 
@@ -26,7 +28,9 @@ public:
 
      Context();
 
-     void Request();
+     void RequestForData();
+
+     void GetResult();
 
 private:
 

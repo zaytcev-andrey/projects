@@ -15,7 +15,8 @@ using namespace testing;
 class MockContext : public IContext
 {
 public:
-     MOCK_METHOD0( Request, void() );
+     MOCK_METHOD0( RequestForData, void() );
+     MOCK_METHOD0( GetResult, void() );
      MOCK_METHOD1( ChangeState, void( IState* state ) );
 };
 
@@ -32,8 +33,8 @@ TEST( InitStateTest, Request )
      IState* new_state = WorkingState::Instance();
  
      MockInitState state;     
-     EXPECT_CALL( moc_context, Request() ).Times( 1 );
+     EXPECT_CALL( moc_context, RequestForData() ).Times( 1 );
      EXPECT_CALL( state, ChangeState( &moc_context, new_state ) ).Times( 1 );
 
-     state.Request( &moc_context );
+     state.RequestForData( &moc_context );
 }

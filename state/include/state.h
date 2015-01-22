@@ -10,7 +10,9 @@ public:
      
      virtual ~IState() {}
 
-     virtual void Request( IContext* context ) = 0;
+     virtual void RequestForData( IContext* context ) = 0;
+
+     virtual void GetResult( IContext* context ) = 0;
 
 protected:
      virtual void ChangeState( IContext* context, IState* state );
@@ -20,7 +22,7 @@ protected:
 class InitState : public IState
 {
 public:
-     void Request( IContext* context );
+     void RequestForData( IContext* context );
 
      static InitState* Instance()
      {
@@ -32,6 +34,8 @@ public:
           return instatnce_.get();
      }
 
+     void GetResult( IContext* context );
+
 private:
      static boost::scoped_ptr< InitState > instatnce_;
 };
@@ -39,7 +43,7 @@ private:
 class WorkingState : public IState
 {
 public:
-     void Request( IContext* context );
+     void RequestForData( IContext* context );
 
      static WorkingState* Instance()
      {
@@ -51,6 +55,29 @@ public:
           return instatnce_.get();
      }
 
+     void GetResult( IContext* context );
+
 private:
      static boost::scoped_ptr< WorkingState > instatnce_;
+};
+
+class DoneState : public IState
+{
+public:
+     void RequestForData( IContext* context );
+
+     static DoneState* Instance()
+     {
+          if ( !instatnce_.get() )
+          {
+               instatnce_.reset( new DoneState() );
+          }
+
+          return instatnce_.get();
+     }
+
+     void GetResult( IContext* context );
+
+private:
+     static boost::scoped_ptr< DoneState > instatnce_;
 };

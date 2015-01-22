@@ -1,7 +1,6 @@
 #include <state/include/precompiled.h>
 
 #include <state/include/context.h>
-#include <state/include/context_impl.h>
 #include <state/include/state.h>
 
 
@@ -15,7 +14,12 @@ Context::Context( IState* state )
 {
 }
 
-void Context::Request()
+void Context::RequestForData()
 {
-     state_->Request( this );
+     state_->RequestForData( this );
+}
+
+void Context::GetResult()
+{
+
 }
