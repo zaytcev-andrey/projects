@@ -27,7 +27,7 @@
 			/>
 			<Tool
 				Name="VCCustomBuildTool"
-				CommandLine="$(MainDir)\scripts\testscripts\test.bat $(TargetPath) $(PlatformName) $(ConfigurationName)"
+				CommandLine="$(MainDir)\scripts\testscripts\test.bat $(TargetPath) $(PlatformName) $(ConfigurationName)&#x0D;&#x0A;"
 			/>
 			<Tool
 				Name="VCXMLDataGeneratorTool"
@@ -195,6 +195,10 @@
 			<Filter
 				Name="model"
 				>
+				<File
+					RelativePath=".\source\context.cpp"
+					>
+				</File>
 				<File
 					RelativePath=".\source\state.cpp"
 					>

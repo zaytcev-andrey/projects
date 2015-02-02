@@ -21,5 +21,5 @@ void Context::RequestForData()
 
 void Context::GetResult()
 {
-
+     state_->GetResult( this );
 }

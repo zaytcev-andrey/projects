@@ -1,5 +1,6 @@
 #include <state/include/precompiled.h>
 
+#include <state/include/context.h>
 
 #include <boost/asio.hpp>
 #include <boost/thread/mutex.hpp>
@@ -28,6 +29,8 @@ void run( boost::asio::io_service& io )
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+     Context context;
+     
      boost::asio::io_service io;
 
      boost::asio::deadline_timer t( io, boost::posix_time::seconds( 5 ) );
