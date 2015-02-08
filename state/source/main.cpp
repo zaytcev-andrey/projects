@@ -30,6 +30,7 @@ void run( boost::asio::io_service& io )
 int _tmain(int argc, _TCHAR* argv[])
 {
      Context context;
+     context.RequestForData();
      
      boost::asio::io_service io;
 

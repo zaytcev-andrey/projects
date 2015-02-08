@@ -200,6 +200,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\source\context_impl.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\source\state.cpp"
 					>
 				</File>

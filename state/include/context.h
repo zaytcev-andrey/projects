@@ -3,24 +3,10 @@
 #include <boost/scoped_ptr.hpp>
 #include <boost/shared_ptr.hpp>
 
-class IState;
+#include <state/include/i_context.h>
 
-class IContext
-{
-public:
 
-     virtual ~IContext() {}
-
-     virtual void RequestForData() = 0;
-
-     virtual void GetResult() = 0;
-
-private:
-
-     friend class IState;
-
-     virtual void ChangeState( IState* state ) = 0;
-};
+class IContextImpl;
 
 class Context : public IContext
 {
@@ -39,11 +25,18 @@ private:
           state_ = state;
      }
  
+     void ChangeState( boost::shared_ptr< IState > state )
+     {
+          // shared_state_.swap( state );
+     }
+ 
 protected:
 
-     Context( IState* state );
+     Context( IState* state, boost::shared_ptr< IContextImpl > impl );
 
 private:     
      
      IState* state_;
+     boost::shared_ptr< IState > shared_state_;
+     boost::shared_ptr< IContextImpl > impl_;
 };

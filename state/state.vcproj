@@ -173,6 +173,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\source\context_impl.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\source\main.cpp"
 				>
 			</File>
@@ -200,6 +204,18 @@
 			>
 			<File
 				RelativePath=".\include\context.h"
+				>
+			</File>
+			<File
+				RelativePath=".\include\context_impl.h"
+				>
+			</File>
+			<File
+				RelativePath=".\include\i_context.h"
+				>
+			</File>
+			<File
+				RelativePath=".\include\i_context_impl.h"
 				>
 			</File>
 			<File

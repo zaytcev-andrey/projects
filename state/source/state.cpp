@@ -1,7 +1,8 @@
 #include <state/include/precompiled.h>
 
 #include <state/include/state.h>
-#include <state/include/context.h>
+#include <state/include/i_context.h>
+#include <state/include/i_context_impl.h>
 
 #include <boost/scoped_ptr.hpp>
 
@@ -14,40 +15,40 @@ void IState::ChangeState( IContext* context, IState* state )
      context->ChangeState( state );
 }
 
-void InitState::RequestForData( IContext* context )
+void InitState::RequestForData( IContext* context, IContextImpl* impl )
 {
-     context->RequestForData();
+     impl->RequestForDataImpl();
 
      ChangeState( context, WorkingState::Instance() );
 }
 
-void InitState::GetResult( IContext* context )
+void InitState::GetResult( IContext* context, IContextImpl* impl )
 {
-     // do nothing
+     impl->GetResultImpl();
 }
 
-void WorkingState::RequestForData( IContext* context )
+void WorkingState::RequestForData( IContext* context, IContextImpl* impl )
 {
-     context->RequestForData();
+     impl->RequestForDataImpl();
 }
 
-void WorkingState::GetResult( IContext* context )
+void WorkingState::GetResult( IContext* context, IContextImpl* impl )
 {
-     context->GetResult();
+     impl->GetResultImpl();
      
      ChangeState( context, DoneState::Instance() );
 }
 
-void DoneState::RequestForData( IContext* context )
+void DoneState::RequestForData( IContext* context, IContextImpl* impl )
 {
-     context->RequestForData();
+     impl->RequestForDataImpl();
 
      ChangeState( context, WorkingState::Instance() );
 }
 
-void DoneState::GetResult( IContext* context )
+void DoneState::GetResult( IContext* context, IContextImpl* impl )
 {
-     context->GetResult();
+     impl->GetResultImpl();
 }
 
 

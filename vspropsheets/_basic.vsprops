@@ -81,4 +81,8 @@
 		Name="ProjectLibDir"
 		Value="$(MainDir)\project_lib\$(InternalPlatformName)\$(ConfigurationName)"
 	/>
+	<UserMacro
+		Name="DbgInfoDir"
+		Value="$(OutDir)\DbgInfoDir"
+	/>
 </VisualStudioPropertySheet>
